@@ -1,6 +1,6 @@
 # Nordea PSP
 
-This repository contains ,icroservices for nordea psp backend. Microservices are comminucating each other through Apache Kafka. 
+This repository contains microservices for nordea psp backend. Microservices are comminucating each other through Apache Kafka. 
 
 
 ## Installation
