@@ -1,12 +1,12 @@
 package nordea.consumer;
 
 
-import java.util.concurrent.CountDownLatch;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import rx.subjects.BehaviorSubject;
+
+import java.util.concurrent.CountDownLatch;
 
 
 public class ApiKafkaReceiver {

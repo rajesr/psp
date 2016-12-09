@@ -1,13 +1,13 @@
 package nordea.consumer;
 
 
-import java.util.concurrent.CountDownLatch;
-
 import nordea.producer.MerchantBrokerSender;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
+
+import java.util.concurrent.CountDownLatch;
 
 
 public class MerchantBrokerReceiver {

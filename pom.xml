@@ -12,6 +12,7 @@
         <module>payment_api</module>
         <module>merchant_broker</module>
         <module>psp_providers</module>
+        <module>test</module>
     </modules>
 
     <properties>

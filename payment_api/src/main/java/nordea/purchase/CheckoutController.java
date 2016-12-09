@@ -1,5 +1,6 @@
 package nordea.purchase;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import nordea.NordeaRestController;
 import nordea.consumer.ApiKafkaReceiver;
 import nordea.producer.ApiKafkaSender;
@@ -18,6 +19,9 @@ public class CheckoutController {
     @Autowired
     private ApiKafkaReceiver receiver;
 
+    @Autowired
+    private ObjectMapper objectMapper;
+
     /**
      * @param name
      * @return
@@ -33,11 +37,6 @@ public class CheckoutController {
                 .unsubscribe();
 
         sender.sendMessage("purchase.t", name);
-
-
         return deffered;
-
-
     }
-
 }

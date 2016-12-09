@@ -1,7 +1,5 @@
 package nordea.consumer;
 
-import java.util.Map;
-
 import com.google.common.collect.Maps;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.IntegerDeserializer;
@@ -13,6 +11,8 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+
+import java.util.Map;
 
 @Configuration
 @EnableKafka
