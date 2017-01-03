@@ -18,11 +18,11 @@ public class ApiKafkaReceiver {
 
     BehaviorSubject<Object> subject = BehaviorSubject.create("default");
 
+
     @KafkaListener(topics = "purchase.ready")
     public void receiveMessage(String message) {
         subject.onNext(message);
         LOGGER.info("api received message='{}'", message);
-        latch.countDown();
     }
 
     public CountDownLatch getLatch() {

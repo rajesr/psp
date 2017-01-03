@@ -2,8 +2,6 @@ package nordea.models;
 
 import java.util.UUID;
 
-import static nordea.utils.Uuid.generate;
-
 public class PaymentMethodsRequest implements PaymentMethods {
     private Merchant merchant;
     private UUID uuid;
@@ -13,7 +11,8 @@ public class PaymentMethodsRequest implements PaymentMethods {
     }
 
     @Override
-    public UUID getUUID() {
-        return uuid;
+    public UUID getUuid() {
+        return this.uuid;
     }
+
 }

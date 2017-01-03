@@ -1,13 +1,8 @@
 package nordea.models;
 
-public class PaymentMethods {
-    private Merchant merchant;
+import java.util.UUID;
 
-    public Merchant getMerchant() {
-        return merchant;
-    }
-
-    public void setMerchant(Merchant merchant) {
-        this.merchant = merchant;
-    }
+public interface PaymentMethods {
+    Merchant getMerchant();
+    UUID getUuid();
 }

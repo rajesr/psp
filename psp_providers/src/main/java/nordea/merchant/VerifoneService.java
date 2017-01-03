@@ -1,6 +1,7 @@
 package nordea.merchant;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.collect.Lists;
 import nordea.models.PaymentMethodsRequest;
 import nordea.models.PaymentMethodsResponse;
 import nordea.producer.PspProviderSender;
@@ -15,7 +16,6 @@ import java.io.IOException;
 @Component
 public class VerifoneService {
 
-
     @Autowired
     private PspProviderSender sender;
 
@@ -26,14 +26,15 @@ public class VerifoneService {
             .getLogger(VerifoneService.class);
 
     @KafkaListener(topics = "verifone_get_payment_methods")
-    public void getPaymentMethods(String message) throws IOException {
+    public void getPaymentMethods(String message) throws IOException, InterruptedException {
         LOGGER.info("received message='{}'", message);
         PaymentMethodsRequest paymentMethodsRequest = objectMapper.readValue(message, PaymentMethodsRequest.class);
         PaymentMethodsResponse paymentMethodsResponse = new PaymentMethodsResponse();
         paymentMethodsResponse.setMerchant(paymentMethodsRequest.getMerchant());
-        paymentMethodsResponse.setUUID(paymentMethodsRequest.getUUID());
+        paymentMethodsResponse.setUuid(paymentMethodsRequest.getUuid());
         // TODO: fetch payment methods and return as json string
-        paymentMethodsResponse.setPaymentMethods("[]");
+        paymentMethodsResponse.setPaymentMethods(Lists.newArrayList());
+        //Thread.sleep((long) (Math.random() * 1000));
         sender.sendMessage("get_payment_methods_success", objectMapper.writeValueAsString(paymentMethodsResponse));
     }
 }

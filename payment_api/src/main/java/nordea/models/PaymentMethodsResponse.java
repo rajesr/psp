@@ -15,11 +15,11 @@ public class PaymentMethodsResponse implements PaymentMethods {
     }
 
     @Override
-    public UUID getUUID() {
-        return uuid;
+    public UUID getUuid() {
+        return this.uuid;
     }
 
-    public void setUUID(UUID uuid) {
+    public void setUuid(UUID uuid) {
         this.uuid = uuid;
     }
 }
